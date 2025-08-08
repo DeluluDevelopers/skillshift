@@ -674,31 +674,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Past Webinars Event */}
+      {/* Snippets from Our Past Experience */}
       <section className='py-12 sm:py-16 lg:py-24 relative'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-20 animate-slide-up'>
             <div className='inline-flex items-center space-x-2 bg-glass-premium px-6 py-3 rounded-full mb-6'>
               <Play className='h-5 w-5 text-premium-blue' />
-              <span className='text-white font-medium'>Our Events</span>
+              <span className='text-white font-medium'>Our Journey</span>
             </div>
             <h2 className='text-5xl font-bold text-white mb-8'>
-              Past Webinars & Events
+              Snippets from Our Past Experience
             </h2>
             <p className='text-lg text-gray-300 max-w-3xl mx-auto font-open-sans'>
-              Take a look at some of our successful webinars and training events
-              that have transformed countless professionals.
+              Moments from our training sessions, workshops, and professional
+              development programs that showcase our commitment to transforming
+              lives and careers.
             </p>
           </div>
 
-          {/* Horizontal Scrolling Event Images */}
+          {/* Horizontal Scrolling Experience Images */}
           <div className='relative overflow-hidden py-8'>
             <div className='animate-scroll-horizontal-slow'>
-              {/* First set of event images */}
+              {/* First set of experience images */}
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-15 at 11.19.57_b3cb4a30 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -707,7 +708,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-15 at 11.30.19_e2ab0961 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -716,7 +717,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-14 at 16.29.36_374ee99a - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -725,7 +726,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-14 at 16.29.36_4611de48 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -734,7 +735,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-14 at 16.29.35_3263b244 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -743,7 +744,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/IMG-20250731-WA0012 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -752,7 +753,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/IMG-20250731-WA0009 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -761,7 +762,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/IMG-20250728-WA0009 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -772,7 +773,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-15 at 11.19.57_b3cb4a30 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -781,7 +782,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-15 at 11.30.19_e2ab0961 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -790,7 +791,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-14 at 16.29.36_374ee99a - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -799,7 +800,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-14 at 16.29.36_4611de48 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -808,7 +809,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/WhatsApp Image 2025-07-14 at 16.29.35_3263b244 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -817,7 +818,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/IMG-20250731-WA0012 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -826,7 +827,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/IMG-20250731-WA0009 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
@@ -835,7 +836,7 @@ export default function Home() {
               <div className='webinar-container'>
                 <Image
                   src='/pastwebinarsevent/IMG-20250728-WA0009 - Neerja Dixit.jpg'
-                  alt='Webinar Event'
+                  alt='Training Experience'
                   width={400}
                   height={300}
                   className='webinar-image'
