@@ -36,9 +36,9 @@ export default function Contact() {
 
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ease-out ${
+        className={`md:fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ease-out ${
           isScrolled
-            ? "bg-[rgba(59,130,246,0.05)] backdrop-blur-[25px] shadow-lg mt-4 mx-4 rounded-2xl"
+            ? "md:bg-[rgba(59,130,246,0.05)] md:backdrop-blur-[25px] md:shadow-lg md:mt-4 md:mx-4 md:rounded-2xl"
             : "bg-transparent mt-0 mx-0"
         }`}
       >
@@ -51,7 +51,7 @@ export default function Contact() {
                   alt='SkillShift Logo'
                   width={120}
                   height={120}
-                  className='w-32 h-32 object-contain'
+                  className='w-24 h-24 object-contain'
                   style={{ maxWidth: "none", maxHeight: "none" }}
                 />
               </div>
@@ -333,91 +333,72 @@ export default function Contact() {
       </section>
 
       {/* Footer */}
-      <footer className='bg-black text-white py-20 border-t border-white/10'>
+      <footer className='relative bg-black text-white py-16 border-t border-white/10 z-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='grid md:grid-cols-4 gap-12'>
-            <div>
-              <div className='flex items-center space-x-2 mb-6'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12'>
+            <div className='text-center md:text-left space-y-6'>
+              <div className='flex items-center justify-center md:justify-start mb-4'>
                 <Image
                   src='/logo_without_bg.png'
                   alt='SkillShift Logo'
                   width={120}
                   height={120}
-                  className='w-32 h-32 object-contain'
+                  className='w-24 h-24 object-contain'
                   style={{ maxWidth: "none", maxHeight: "none" }}
                 />
               </div>
-              <p className='text-gray-300 font-open-sans leading-relaxed'>
+              <p className='text-gray-300 font-open-sans leading-relaxed max-w-sm mx-auto md:mx-0 text-sm'>
                 We are India&apos;s premier training and development company,
                 offering customized learning programs for businesses and
                 organizations at all levels.
               </p>
             </div>
-            <div>
-              <h4 className='text-xl font-semibold mb-6 text-white'>About</h4>
+            
+            <div className='text-center md:text-left space-y-4'>
+              <h4 className='text-xl font-semibold text-white mb-6'>About</h4>
               <ul className='space-y-3 text-gray-300 font-open-sans'>
                 <li>
                   <a
-                    href='#'
-                    className='hover:text-premium-blue transition-colors'
+                    href='/about'
+                    className='hover:text-premium-blue transition-all duration-300 font-medium group relative inline-block cursor-pointer hover:scale-105 text-sm'
                   >
-                    Our Programs
+                    About Us
+                    <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full'></span>
                   </a>
                 </li>
                 <li>
-                  <Link
+                  <a
                     href='/contact'
-                    className='hover:text-premium-blue transition-colors'
+                    className='hover:text-premium-blue transition-all duration-300 font-medium group relative inline-block cursor-pointer hover:scale-105 text-sm'
                   >
                     Contact Us
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className='text-xl font-semibold mb-6 text-white'>
-                Programs
-              </h4>
-              <ul className='space-y-3 text-gray-300 font-open-sans'>
-                <li>
-                  <a
-                    href='#'
-                    className='hover:text-premium-blue transition-colors'
-                  >
-                    Corporate Training
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#'
-                    className='hover:text-premium-blue transition-colors'
-                  >
-                    Institutional Training
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#'
-                    className='hover:text-premium-blue transition-colors'
-                  >
-                    Open Workshops
+                    <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full'></span>
                   </a>
                 </li>
               </ul>
             </div>
-            <div>
-              <h4 className='text-xl font-semibold mb-6 text-white'>
+            
+            <div className='text-center md:text-left space-y-4'>
+              <h4 className='text-xl font-semibold text-white mb-6'>
                 Get in touch
               </h4>
               <ul className='space-y-3 text-gray-300 font-open-sans'>
-                <li>+91 7027263146</li>
-                <li>neerjaadixitt05@gmail.com</li>
+                <li className='flex items-center justify-center md:justify-start'>
+                  <span className='text-sm'>+91 7027263146</span>
+                </li>
+                <li className='flex items-center justify-center md:justify-start'>
+                  <span className='text-sm'>neerjaadixitt05@gmail.com</span>
+                </li>
               </ul>
             </div>
           </div>
-          <div className='divider-premium'></div>
-          <div className='text-center text-gray-300 font-open-sans'>
-            <p>Copyright 2024 © SkillShift | All Rights Reserved</p>
+          
+          <div className='w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6'></div>
+          
+          <div className='text-center'>
+            <p className='text-gray-400 font-open-sans text-sm'>
+              Copyright 2024 © SkillShift | All Rights Reserved
+            </p>
           </div>
         </div>
       </footer>

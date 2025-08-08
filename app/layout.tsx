@@ -7,6 +7,8 @@ const poppins = Poppins({
   variable: "--font-poppins",
   display: "swap",
   weight: ["300", "400", "500", "600", "700", "800"],
+  fallback: ["system-ui", "arial"],
+  preload: false,
 });
 
 const merriweather = Merriweather({
@@ -14,6 +16,8 @@ const merriweather = Merriweather({
   variable: "--font-merriweather",
   display: "swap",
   weight: ["300", "400", "700", "900"],
+  fallback: ["serif"],
+  preload: false,
 });
 
 export const metadata: Metadata = {

@@ -1129,62 +1129,70 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className='relative bg-black text-white py-20 border-t border-white/10 z-10'>
+      <footer className='relative bg-black text-white py-16 border-t border-white/10 z-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='grid md:grid-cols-3 gap-12'>
-            <div>
-              <div className='flex items-center space-x-2 mb-6'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12'>
+            <div className='text-center md:text-left space-y-6'>
+              <div className='flex items-center justify-center md:justify-start mb-4'>
                 <Image
                   src='/logo_without_bg.png'
                   alt='SkillShift Logo'
                   width={120}
                   height={120}
-                  className='w-32 h-32 object-contain'
+                  className='w-24 h-24 object-contain'
                   style={{ maxWidth: "none", maxHeight: "none" }}
                 />
               </div>
-              <p className='text-gray-300 font-open-sans leading-relaxed'>
+              <p className='text-gray-300 font-open-sans leading-relaxed max-w-sm mx-auto md:mx-0 text-sm'>
                 We are India&apos;s premier training and development company,
                 offering customized learning programs for businesses and
                 organizations at all levels.
               </p>
             </div>
-            <div>
-              <h4 className='text-xl font-semibold mb-6 text-white'>
-                About Us
-              </h4>
+            
+            <div className='text-center md:text-left space-y-4'>
+              <h4 className='text-xl font-semibold text-white mb-6'>About</h4>
               <ul className='space-y-3 text-gray-300 font-open-sans'>
                 <li>
                   <a
                     href='/about'
-                    className='hover:text-premium-blue transition-colors'
+                    className='hover:text-premium-blue transition-all duration-300 font-medium group relative inline-block cursor-pointer hover:scale-105 text-sm'
                   >
                     About Us
+                    <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full'></span>
                   </a>
                 </li>
                 <li>
                   <a
                     href='/contact'
-                    className='hover:text-premium-blue transition-colors'
+                    className='hover:text-premium-blue transition-all duration-300 font-medium group relative inline-block cursor-pointer hover:scale-105 text-sm'
                   >
                     Contact Us
+                    <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full'></span>
                   </a>
                 </li>
               </ul>
             </div>
-            <div>
-              <h4 className='text-xl font-semibold mb-6 text-white'>
+            
+            <div className='text-center md:text-left space-y-4'>
+              <h4 className='text-xl font-semibold text-white mb-6'>
                 Get in touch
               </h4>
               <ul className='space-y-3 text-gray-300 font-open-sans'>
-                <li>+91 7027263146</li>
-                <li>neerjaadixitt05@gmail.com</li>
+                <li className='flex items-center justify-center md:justify-start'>
+                  <span className='text-sm'>+91 7027263146</span>
+                </li>
+                <li className='flex items-center justify-center md:justify-start'>
+                  <span className='text-sm'>neerjaadixitt05@gmail.com</span>
+                </li>
               </ul>
             </div>
           </div>
-          <div className='w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-12'></div>
-          <div className='text-center text-gray-300 font-open-sans'>
-            <p>
+          
+          <div className='w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6'></div>
+          
+          <div className='text-center'>
+            <p className='text-gray-400 font-open-sans text-sm'>
               Copyright 2024 © SkillShift | All Rights Reserved
             </p>
           </div>
