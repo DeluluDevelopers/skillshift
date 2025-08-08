@@ -119,9 +119,9 @@ export default function Home() {
 
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ease-out ${
+        className={`md:fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ease-out ${
           isScrolled
-            ? "bg-[rgba(59,130,246,0.05)] backdrop-blur-[25px] shadow-lg mt-4 mx-4 rounded-2xl"
+            ? "md:bg-[rgba(59,130,246,0.05)] md:backdrop-blur-[25px] md:shadow-lg md:mt-4 md:mx-4 md:rounded-2xl"
             : "bg-transparent mt-0 mx-0"
         }`}
       >
@@ -227,7 +227,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id='home'
-        className='relative min-h-screen flex items-center justify-center overflow-hidden py-20 lg:py-0'
+        className='relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-20 lg:py-0'
       >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full'>
           <div className='grid lg:grid-cols-2 gap-8 lg:gap-12 items-center'>
@@ -299,11 +299,16 @@ export default function Home() {
             <div className='text-center mb-12'>
               <div className='inline-flex items-center space-x-2 bg-gradient-primary px-6 py-3 rounded-full mb-4'>
                 <Users className='h-5 w-5 text-white' />
-                <span className='text-white font-medium'>B2C - Individual Training</span>
+                <span className='text-white font-medium'>
+                  B2C - Individual Training
+                </span>
               </div>
-              <h3 className='text-3xl font-bold text-white mb-4'>Personal Development</h3>
+              <h3 className='text-3xl font-bold text-white mb-4'>
+                Personal Development
+              </h3>
               <p className='text-gray-300 max-w-2xl mx-auto font-open-sans'>
-                Empowering individuals with essential skills for personal and professional growth.
+                Empowering individuals with essential skills for personal and
+                professional growth.
               </p>
             </div>
             <div className='grid md:grid-cols-3 gap-8'>
@@ -351,11 +356,16 @@ export default function Home() {
             <div className='text-center mb-12'>
               <div className='inline-flex items-center space-x-2 bg-gradient-cyan px-6 py-3 rounded-full mb-4'>
                 <Award className='h-5 w-5 text-white' />
-                <span className='text-white font-medium'>B2B - Organizational Training</span>
+                <span className='text-white font-medium'>
+                  B2B - Organizational Training
+                </span>
               </div>
-              <h3 className='text-3xl font-bold text-white mb-4'>Enterprise Solutions</h3>
+              <h3 className='text-3xl font-bold text-white mb-4'>
+                Enterprise Solutions
+              </h3>
               <p className='text-gray-300 max-w-2xl mx-auto font-open-sans'>
-                Comprehensive training solutions for organizations to enhance team performance and productivity.
+                Comprehensive training solutions for organizations to enhance
+                team performance and productivity.
               </p>
             </div>
             <div className='grid md:grid-cols-3 gap-8'>
@@ -379,8 +389,8 @@ export default function Home() {
                   Schools & Institutes
                 </h4>
                 <p className='text-gray-300 font-open-sans leading-relaxed'>
-                  Educational institution partnerships to develop students&apos; soft
-                  skills and prepare them for future challenges.
+                  Educational institution partnerships to develop students&apos;
+                  soft skills and prepare them for future challenges.
                 </p>
               </div>
               <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
@@ -1119,9 +1129,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className='bg-black text-white py-20 border-t border-white/10 select-text'>
+      <footer className='relative bg-black text-white py-20 border-t border-white/10 z-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='grid md:grid-cols-4 gap-12'>
+          <div className='grid md:grid-cols-3 gap-12'>
             <div>
               <div className='flex items-center space-x-2 mb-6'>
                 <Image
@@ -1133,29 +1143,29 @@ export default function Home() {
                   style={{ maxWidth: "none", maxHeight: "none" }}
                 />
               </div>
-              <p className='text-gray-300 font-open-sans leading-relaxed select-text'>
+              <p className='text-gray-300 font-open-sans leading-relaxed'>
                 We are India&apos;s premier training and development company,
                 offering customized learning programs for businesses and
                 organizations at all levels.
               </p>
             </div>
             <div>
-              <h4 className='text-xl font-semibold mb-6 text-white select-text'>
-                About
+              <h4 className='text-xl font-semibold mb-6 text-white'>
+                About Us
               </h4>
               <ul className='space-y-3 text-gray-300 font-open-sans'>
-                <li className='select-text'>
+                <li>
                   <a
-                    href='#'
-                    className='hover:text-premium-blue transition-colors select-text'
+                    href='/about'
+                    className='hover:text-premium-blue transition-colors'
                   >
-                    Our Programs
+                    About Us
                   </a>
                 </li>
-                <li className='select-text'>
+                <li>
                   <a
-                    href='#'
-                    className='hover:text-premium-blue transition-colors select-text'
+                    href='/contact'
+                    className='hover:text-premium-blue transition-colors'
                   >
                     Contact Us
                   </a>
@@ -1163,49 +1173,18 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className='text-xl font-semibold mb-6 text-white select-text'>
-                Programs
-              </h4>
-              <ul className='space-y-3 text-gray-300 font-open-sans'>
-                <li className='select-text'>
-                  <a
-                    href='#'
-                    className='hover:text-premium-blue transition-colors select-text'
-                  >
-                    Corporate Training
-                  </a>
-                </li>
-                <li className='select-text'>
-                  <a
-                    href='#'
-                    className='hover:text-premium-blue transition-colors select-text'
-                  >
-                    Institutional Training
-                  </a>
-                </li>
-                <li className='select-text'>
-                  <a
-                    href='#'
-                    className='hover:text-premium-blue transition-colors select-text'
-                  >
-                    Open Workshops
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className='text-xl font-semibold mb-6 text-white select-text'>
+              <h4 className='text-xl font-semibold mb-6 text-white'>
                 Get in touch
               </h4>
               <ul className='space-y-3 text-gray-300 font-open-sans'>
-                <li className='select-text'>+91 7027263146</li>
-                <li className='select-text'>neerjaadixitt05@gmail.com</li>
+                <li>+91 7027263146</li>
+                <li>neerjaadixitt05@gmail.com</li>
               </ul>
             </div>
           </div>
-          <div className='divider-premium'></div>
+          <div className='w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-12'></div>
           <div className='text-center text-gray-300 font-open-sans'>
-            <p className='select-text'>
+            <p>
               Copyright 2024 © SkillShift | All Rights Reserved
             </p>
           </div>
