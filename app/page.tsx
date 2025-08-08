@@ -1149,31 +1149,29 @@ export default function Home() {
                 organizations at all levels.
               </p>
             </div>
-            
+
             <div className='text-center md:text-left space-y-4'>
               <h4 className='text-xl font-semibold text-white mb-6'>About</h4>
               <ul className='space-y-3 text-gray-300 font-open-sans'>
                 <li>
-                  <a
+                  <Link
                     href='/about'
-                    className='hover:text-premium-blue transition-all duration-300 font-medium group relative inline-block cursor-pointer hover:scale-105 text-sm'
+                    className='text-gray-300 transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
                   >
                     About Us
-                    <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full'></span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href='/contact'
-                    className='hover:text-premium-blue transition-all duration-300 font-medium group relative inline-block cursor-pointer hover:scale-105 text-sm'
+                    className='text-gray-300 transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
                   >
                     Contact Us
-                    <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full'></span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
-            
+
             <div className='text-center md:text-left space-y-4'>
               <h4 className='text-xl font-semibold text-white mb-6'>
                 Get in touch
@@ -1188,9 +1186,9 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          
+
           <div className='w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6'></div>
-          
+
           <div className='text-center'>
             <p className='text-gray-400 font-open-sans text-sm'>
               Copyright 2024 © SkillShift | All Rights Reserved
