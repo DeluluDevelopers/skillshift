@@ -293,42 +293,108 @@ export default function Home() {
               comprehensive training solutions tailored to your needs.
             </p>
           </div>
-          <div className='grid md:grid-cols-3 gap-8'>
-            <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
-              <div className='flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-6 glow-premium group-hover:glow-premium-hover transition-all duration-300'>
-                <Target className='h-8 w-8 text-white' />
+
+          {/* B2C Section */}
+          <div className='mb-16'>
+            <div className='text-center mb-12'>
+              <div className='inline-flex items-center space-x-2 bg-gradient-primary px-6 py-3 rounded-full mb-4'>
+                <Users className='h-5 w-5 text-white' />
+                <span className='text-white font-medium'>B2C - Individual Training</span>
               </div>
-              <h3 className='text-2xl font-semibold mb-4 text-white'>
-                High School Students
-              </h3>
-              <p className='text-gray-300 font-open-sans leading-relaxed'>
-                Building confidence and communication skills early in their
-                academic journey.
+              <h3 className='text-3xl font-bold text-white mb-4'>Personal Development</h3>
+              <p className='text-gray-300 max-w-2xl mx-auto font-open-sans'>
+                Empowering individuals with essential skills for personal and professional growth.
               </p>
             </div>
-            <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
-              <div className='flex items-center justify-center w-16 h-16 bg-gradient-cyan rounded-2xl mb-6 glow-cyan group-hover:glow-cyan-hover transition-all duration-300'>
-                <Users className='h-8 w-8 text-white' />
+            <div className='grid md:grid-cols-3 gap-8'>
+              <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
+                <div className='flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-6 glow-premium group-hover:glow-premium-hover transition-all duration-300'>
+                  <Target className='h-8 w-8 text-white' />
+                </div>
+                <h4 className='text-2xl font-semibold mb-4 text-white'>
+                  High School Students
+                </h4>
+                <p className='text-gray-300 font-open-sans leading-relaxed'>
+                  Building confidence and communication skills early in their
+                  academic journey for future success.
+                </p>
               </div>
-              <h3 className='text-2xl font-semibold mb-4 text-white'>
-                Recent College Graduates
-              </h3>
-              <p className='text-gray-300 font-open-sans leading-relaxed'>
-                Supporting fresh graduates transitioning from college to
-                professional life.
+              <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
+                <div className='flex items-center justify-center w-16 h-16 bg-gradient-cyan rounded-2xl mb-6 glow-cyan group-hover:glow-cyan-hover transition-all duration-300'>
+                  <Users className='h-8 w-8 text-white' />
+                </div>
+                <h4 className='text-2xl font-semibold mb-4 text-white'>
+                  Recent Graduates
+                </h4>
+                <p className='text-gray-300 font-open-sans leading-relaxed'>
+                  Supporting fresh graduates transitioning from college to
+                  professional life with industry-ready skills.
+                </p>
+              </div>
+              <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
+                <div className='flex items-center justify-center w-16 h-16 bg-gradient-indigo rounded-2xl mb-6 glow-indigo group-hover:glow-indigo-hover transition-all duration-300'>
+                  <TrendingUp className='h-8 w-8 text-white' />
+                </div>
+                <h4 className='text-2xl font-semibold mb-4 text-white'>
+                  Working Professionals
+                </h4>
+                <p className='text-gray-300 font-open-sans leading-relaxed'>
+                  Enhancing career prospects through advanced soft skills and
+                  leadership development programs.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* B2B Section */}
+          <div>
+            <div className='text-center mb-12'>
+              <div className='inline-flex items-center space-x-2 bg-gradient-cyan px-6 py-3 rounded-full mb-4'>
+                <Award className='h-5 w-5 text-white' />
+                <span className='text-white font-medium'>B2B - Organizational Training</span>
+              </div>
+              <h3 className='text-3xl font-bold text-white mb-4'>Enterprise Solutions</h3>
+              <p className='text-gray-300 max-w-2xl mx-auto font-open-sans'>
+                Comprehensive training solutions for organizations to enhance team performance and productivity.
               </p>
             </div>
-            <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
-              <div className='flex items-center justify-center w-16 h-16 bg-gradient-indigo rounded-2xl mb-6 glow-indigo group-hover:glow-indigo-hover transition-all duration-300'>
-                <TrendingUp className='h-8 w-8 text-white' />
+            <div className='grid md:grid-cols-3 gap-8'>
+              <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
+                <div className='flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-6 glow-premium group-hover:glow-premium-hover transition-all duration-300'>
+                  <Award className='h-8 w-8 text-white' />
+                </div>
+                <h4 className='text-2xl font-semibold mb-4 text-white'>
+                  Corporate Organizations
+                </h4>
+                <p className='text-gray-300 font-open-sans leading-relaxed'>
+                  Customized training programs for businesses to improve team
+                  collaboration, leadership, and communication effectiveness.
+                </p>
               </div>
-              <h3 className='text-2xl font-semibold mb-4 text-white'>
-                Working Professionals & Corporates
-              </h3>
-              <p className='text-gray-300 font-open-sans leading-relaxed'>
-                Enhancing team performance through targeted soft skills training
-                and leadership development.
-              </p>
+              <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
+                <div className='flex items-center justify-center w-16 h-16 bg-gradient-cyan rounded-2xl mb-6 glow-cyan group-hover:glow-cyan-hover transition-all duration-300'>
+                  <Users className='h-8 w-8 text-white' />
+                </div>
+                <h4 className='text-2xl font-semibold mb-4 text-white'>
+                  Schools & Institutes
+                </h4>
+                <p className='text-gray-300 font-open-sans leading-relaxed'>
+                  Educational institution partnerships to develop students&apos; soft
+                  skills and prepare them for future challenges.
+                </p>
+              </div>
+              <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
+                <div className='flex items-center justify-center w-16 h-16 bg-gradient-indigo rounded-2xl mb-6 glow-indigo group-hover:glow-indigo-hover transition-all duration-300'>
+                  <Sparkles className='h-8 w-8 text-white' />
+                </div>
+                <h4 className='text-2xl font-semibold mb-4 text-white'>
+                  Government Agencies
+                </h4>
+                <p className='text-gray-300 font-open-sans leading-relaxed'>
+                  Specialized training programs for public sector organizations
+                  to enhance service delivery and professional excellence.
+                </p>
+              </div>
             </div>
           </div>
         </div>
