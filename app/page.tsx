@@ -203,14 +203,6 @@ export default function Home() {
           {/* Mobile menu */}
           {isMobileMenuOpen && (
             <div className='md:hidden fixed inset-0 bg-black/95 backdrop-blur-[25px] z-[99999] flex items-center justify-center'>
-              {/* Close button */}
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className='absolute top-6 right-6 text-white hover:text-premium-blue transition-colors z-[100000]'
-              >
-                <X className='h-8 w-8' />
-              </button>
-
               <div className='flex flex-col space-y-8 text-center'>
                 <Link
                   href='#home'
