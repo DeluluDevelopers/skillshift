@@ -365,8 +365,16 @@ export default function Contact() {
               <ul className='space-y-3 text-gray-300 font-open-sans'>
                 <li>
                   <Link
+                    href='/'
+                    className='text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href='/about'
-                    className='text-gray-300 transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
+                    className='text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
                   >
                     About Us
                   </Link>
@@ -374,7 +382,7 @@ export default function Contact() {
                 <li>
                   <Link
                     href='/contact'
-                    className='text-gray-300 transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
+                    className='text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
                   >
                     Contact Us
                   </Link>
