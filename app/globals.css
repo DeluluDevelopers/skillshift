@@ -660,3 +660,30 @@ footer * {
   cursor: text !important;
   pointer-events: auto !important;
 }
+
+/* Mobile Navigation Fixes */
+@media (max-width: 768px) {
+  /* Ensure mobile nav button is always clickable */
+  .md\:hidden button {
+    position: relative;
+    z-index: 100001;
+    touch-action: manipulation;
+  }
+  
+  /* Fix mobile menu overlay */
+  .mobile-menu-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 99999 !important;
+  }
+  
+  /* Prevent body scroll when mobile menu is open */
+  body.mobile-menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+}

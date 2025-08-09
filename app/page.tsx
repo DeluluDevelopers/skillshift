@@ -13,7 +13,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -29,6 +29,7 @@ const AnimatedNumber = ({
 }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,10 +38,10 @@ const AnimatedNumber = ({
           setIsVisible(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
-    const element = document.getElementById("animated-numbers");
+    const element = elementRef.current;
     if (element) {
       observer.observe(element);
     }
@@ -80,7 +81,7 @@ const AnimatedNumber = ({
   }, [isVisible, end, duration]);
 
   return (
-    <span className='number-display'>
+    <span ref={elementRef} className='number-display'>
       {count}
       {suffix}
     </span>
@@ -108,6 +109,20 @@ export default function Home() {
       clearTimeout(timeoutId);
     };
   }, []);
+
+  // Handle body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add('mobile-menu-open');
+    } else {
+      document.body.classList.remove('mobile-menu-open');
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('mobile-menu-open');
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <div className='min-h-screen bg-gradient-dark font-montserrat'>
@@ -171,10 +186,10 @@ export default function Home() {
             </div>
 
             {/* Mobile menu button */}
-            <div className='md:hidden'>
+            <div className='md:hidden relative z-[100001]'>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className='text-white hover:text-premium-blue transition-colors'
+                className='text-white hover:text-premium-blue transition-colors p-2'
               >
                 {isMobileMenuOpen ? (
                   <X className='h-6 w-6' />
@@ -187,11 +202,11 @@ export default function Home() {
 
           {/* Mobile menu */}
           {isMobileMenuOpen && (
-            <div className='md:hidden fixed inset-0 bg-black/95 backdrop-blur-[25px] z-[9998] flex items-center justify-center'>
+            <div className='md:hidden fixed inset-0 bg-black/95 backdrop-blur-[25px] z-[99999] flex items-center justify-center'>
               {/* Close button */}
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className='absolute top-6 right-6 text-white hover:text-premium-blue transition-colors'
+                className='absolute top-6 right-6 text-white hover:text-premium-blue transition-colors z-[100000]'
               >
                 <X className='h-8 w-8' />
               </button>
