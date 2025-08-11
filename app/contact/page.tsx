@@ -1,13 +1,35 @@
 "use client";
 
-import { ArrowRight, Phone, Mail, Sparkles, Menu, X } from "lucide-react";
+import { ArrowRight, Phone, Mail, Sparkles, Menu, X, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+interface FormData {
+  firstName: string;
+  phone: string;
+  email: string;
+  message: string;
+}
+
+interface FormStatus {
+  type: 'idle' | 'loading' | 'success' | 'error';
+  message: string;
+}
+
 export default function Contact() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    firstName: '',
+    phone: '',
+    email: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState<FormStatus>({
+    type: 'idle',
+    message: ''
+  });
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
