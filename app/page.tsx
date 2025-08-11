@@ -690,7 +690,7 @@ export default function Home() {
               <span className='text-white font-medium'>Our Journey</span>
             </div>
             <h2 className='text-5xl font-bold text-white mb-8'>
-              Snippets from Our Past Experience
+              Snippets from Our Training Room
             </h2>
             <p className='text-lg text-gray-300 max-w-3xl mx-auto font-open-sans'>
               Moments from our training sessions, workshops, and professional
