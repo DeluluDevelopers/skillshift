@@ -1,6 +1,15 @@
 "use client";
 
-import { ArrowRight, Phone, Mail, Sparkles, Menu, X, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import {
+  ArrowRight,
+  Phone,
+  Mail,
+  Sparkles,
+  Menu,
+  X,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,7 +22,7 @@ interface FormData {
 }
 
 interface FormStatus {
-  type: 'idle' | 'loading' | 'success' | 'error';
+  type: "idle" | "loading" | "success" | "error";
   message: string;
 }
 
@@ -21,15 +30,78 @@ export default function Contact() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    firstName: '',
-    phone: '',
-    email: '',
-    message: ''
+    firstName: "",
+    phone: "",
+    email: "",
+    message: "",
   });
   const [formStatus, setFormStatus] = useState<FormStatus>({
-    type: 'idle',
-    message: ''
+    type: "idle",
+    message: "",
   });
+
+  // Handle input changes
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Basic validation
+    if (
+      !formData.firstName ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.message
+    ) {
+      setFormStatus({
+        type: "error",
+        message: "Please fill in all required fields.",
+      });
+      return;
+    }
+
+    // Create mailto link with form data
+    const subject = `Contact Form Submission from ${formData.firstName}`;
+    const body = `Name: ${formData.firstName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Message:
+${formData.message}`;
+
+    const mailtoLink = `mailto:neerjadixit@skillshift.in?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    // Open default email client
+    window.location.href = mailtoLink;
+
+    // Show success message
+    setFormStatus({
+      type: "success",
+      message:
+        "Email client opened! Please send the email from your default email application.",
+    });
+  };
+
+  // Clear status message after 5 seconds
+  useEffect(() => {
+    if (formStatus.type !== "idle") {
+      const timer = setTimeout(() => {
+        setFormStatus({ type: "idle", message: "" });
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [formStatus]);
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
@@ -194,47 +266,94 @@ export default function Contact() {
               <h3 className='text-2xl font-semibold text-white mb-8'>
                 Send us a message
               </h3>
-              <form className='glass-premium p-8 rounded-2xl shadow-xl'>
+
+              {/* Status Message */}
+              {formStatus.type !== "idle" && (
+                <div
+                  className={`mb-6 p-4 rounded-xl flex items-center space-x-3 ${
+                    formStatus.type === "success"
+                      ? "bg-green-500/20 border border-green-500/30"
+                      : "bg-red-500/20 border border-red-500/30"
+                  }`}
+                >
+                  {formStatus.type === "success" && (
+                    <CheckCircle className='h-5 w-5 text-green-400' />
+                  )}
+                  {formStatus.type === "error" && (
+                    <AlertCircle className='h-5 w-5 text-red-400' />
+                  )}
+                  <span
+                    className={`text-sm font-medium ${
+                      formStatus.type === "success"
+                        ? "text-green-300"
+                        : "text-red-300"
+                    }`}
+                  >
+                    {formStatus.message}
+                  </span>
+                </div>
+              )}
+
+              <form
+                onSubmit={handleSubmit}
+                className='glass-premium p-8 rounded-2xl shadow-xl'
+              >
                 <div className='grid sm:grid-cols-2 gap-4 sm:gap-6 mb-6'>
                   <div className='group'>
                     <label className='block text-sm font-semibold text-white mb-3 font-roboto group-hover:text-blue-200 transition-colors'>
-                      First Name
+                      First Name *
                     </label>
                     <input
                       type='text'
+                      name='firstName'
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                       className='w-full px-4 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 text-white font-open-sans placeholder-gray-400 transition-all duration-300 hover:bg-white/20'
                       placeholder='Enter your first name'
+                      required
                     />
                   </div>
                   <div className='group'>
                     <label className='block text-sm font-semibold text-white mb-3 font-roboto group-hover:text-blue-200 transition-colors'>
-                      Phone Number
+                      Phone Number *
                     </label>
                     <input
                       type='tel'
+                      name='phone'
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       className='w-full px-4 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 text-white font-open-sans placeholder-gray-400 transition-all duration-300 hover:bg-white/20'
                       placeholder='Enter your phone number'
+                      required
                     />
                   </div>
                 </div>
                 <div className='mb-6 group'>
                   <label className='block text-sm font-semibold text-white mb-3 font-roboto group-hover:text-blue-200 transition-colors'>
-                    Email
+                    Email *
                   </label>
                   <input
                     type='email'
+                    name='email'
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className='w-full px-4 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 text-white font-open-sans placeholder-gray-400 transition-all duration-300 hover:bg-white/20'
                     placeholder='Enter your email address'
+                    required
                   />
                 </div>
                 <div className='mb-6 group'>
                   <label className='block text-sm font-semibold text-white mb-3 font-roboto group-hover:text-blue-200 transition-colors'>
-                    Message
+                    Message *
                   </label>
                   <textarea
                     rows={4}
+                    name='message'
+                    value={formData.message}
+                    onChange={handleInputChange}
                     className='w-full px-4 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 text-white font-open-sans placeholder-gray-400 transition-all duration-300 hover:bg-white/20 resize-none'
                     placeholder='Tell us about your requirements...'
+                    required
                   />
                 </div>
                 <button
