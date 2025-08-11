@@ -769,7 +769,7 @@ export default function About() {
                   <span className='text-sm'>+91 7027263146</span>
                 </li>
                 <li className='flex items-center justify-center md:justify-start'>
-                  <span className='text-sm'>neerjaadixitt05@gmail.com</span>
+                  <span className='text-sm'>neerjadixit@skillshift.in</span>
                 </li>
               </ul>
             </div>

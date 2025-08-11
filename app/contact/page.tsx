@@ -259,7 +259,7 @@ export default function Contact() {
                         Email
                       </h4>
                       <p className='text-gray-300 font-open-sans'>
-                        neerjaadixitt05@gmail.com
+                        neerjadixit@skillshift.in
                       </p>
                     </div>
                   </div>
@@ -399,7 +399,7 @@ export default function Contact() {
                   <span className='text-sm'>+91 7027263146</span>
                 </li>
                 <li className='flex items-center justify-center md:justify-start'>
-                  <span className='text-sm'>neerjaadixitt05@gmail.com</span>
+                  <span className='text-sm'>neerjadixit@skillshift.in</span>
                 </li>
               </ul>
             </div>

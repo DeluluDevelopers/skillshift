@@ -113,14 +113,14 @@ export default function Home() {
   // Handle body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.classList.add('mobile-menu-open');
+      document.body.classList.add("mobile-menu-open");
     } else {
-      document.body.classList.remove('mobile-menu-open');
+      document.body.classList.remove("mobile-menu-open");
     }
 
     // Cleanup on unmount
     return () => {
-      document.body.classList.remove('mobile-menu-open');
+      document.body.classList.remove("mobile-menu-open");
     };
   }, [isMobileMenuOpen]);
 
@@ -272,7 +272,7 @@ export default function Home() {
             {/* Hero Image - Hidden on mobile */}
             <div className='hidden lg:flex justify-center lg:justify-end animate-fade-in'>
               <Image
-                src='/hero_image.png'
+                src='/landing_image.png'
                 alt='3D Hero Component'
                 width={600}
                 height={600}
@@ -1197,7 +1197,7 @@ export default function Home() {
                   <span className='text-sm'>+91 7027263146</span>
                 </li>
                 <li className='flex items-center justify-center md:justify-start'>
-                  <span className='text-sm'>neerjaadixitt05@gmail.com</span>
+                  <span className='text-sm'>neerjadixit@skillshift.in</span>
                 </li>
               </ul>
             </div>
