@@ -175,6 +175,15 @@ export default function Home() {
                 </span>
               </Link>
               <Link
+                href='/programs'
+                className='text-white hover:text-premium-blue transition-all duration-300 font-medium animate-fade-in group'
+              >
+                <span className='relative'>
+                  Programs
+                  <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full'></span>
+                </span>
+              </Link>
+              <Link
                 href='/contact'
                 className='text-white hover:text-premium-blue transition-all duration-300 font-medium animate-fade-in group'
               >
@@ -217,6 +226,13 @@ export default function Home() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About
+                </Link>
+                <Link
+                  href='/programs'
+                  className='text-white hover:text-premium-blue transition-all duration-300 font-medium text-2xl'
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Programs
                 </Link>
                 <Link
                   href='/contact'
@@ -862,7 +878,7 @@ export default function Home() {
               <Star className='h-5 w-5 text-premium-blue' />
               <span className='text-white font-medium'>Why Choose Us</span>
             </div>
-            <h2 className='text-5xl font-bold text-white mb-8'>Our Features</h2>
+            <h2 className='text-5xl font-bold text-white mb-8'>Our Services</h2>
             <p className='text-lg text-gray-300 max-w-3xl mx-auto font-open-sans'>
               Comprehensive solutions including mentorship and HR services with
               proven results
@@ -916,14 +932,13 @@ export default function Home() {
           <div className='text-center mb-20 animate-slide-up'>
             <div className='inline-flex items-center space-x-2 bg-glass-premium px-6 py-3 rounded-full mb-6'>
               <Star className='h-5 w-5 text-premium-blue' />
-              <span className='text-white font-medium'>Client Feedback</span>
+              <span className='text-white font-medium'>Learner Feedback</span>
             </div>
             <h2 className='text-5xl font-bold text-white mb-8'>
-              What Our Clients Say
+              What Our Learners Say
             </h2>
             <p className='text-lg text-gray-300 max-w-3xl mx-auto font-open-sans'>
-              Hear from professionals who have transformed their skills and
-              careers through our training programs.
+              Hear from learners who have transformed their skills and careers through our training programs.
             </p>
           </div>
 
@@ -940,14 +955,11 @@ export default function Home() {
                 />
                 <div className='ml-4'>
                   <h4 className='testimonial-author'>Satyendra Pratap Singh</h4>
-                  <p className='testimonial-company'>Trainee at PowerGrid</p>
+                  <p className='testimonial-company'>Learner at PowerGrid</p>
                 </div>
               </div>
               <p className='testimonial-quote'>
-                &quot;The training session was incredibly engaging and
-                informative. Mam&apos;s expertise and real-world examples made
-                the content relatable and applicable to our needs in our
-                organization.&quot;
+                &quot;The training session was incredibly engaging and informative. Mam&apos;s expertise and real-world examples made the content relatable and applicable to our needs in our organization.&quot;
               </p>
             </div>
 
@@ -963,13 +975,11 @@ export default function Home() {
                 />
                 <div className='ml-4'>
                   <h4 className='testimonial-author'>Akshat Gupta</h4>
-                  <p className='testimonial-company'>Trainee at PowerGrid</p>
+                  <p className='testimonial-company'>Learner at PowerGrid</p>
                 </div>
               </div>
               <p className='testimonial-quote'>
-                &quot;Mam&apos;s ability to connect with our team and tailor the
-                training to our specific challenges was impressive. We saw great
-                improvement in our communication and collaboration skills.&quot;
+                &quot;Mam&apos;s ability to connect with our team and tailor the training to our specific challenges was impressive. We saw great improvement in our communication and collaboration skills.&quot;
               </p>
             </div>
 
@@ -985,13 +995,11 @@ export default function Home() {
                 />
                 <div className='ml-4'>
                   <h4 className='testimonial-author'>Sudhir Barala</h4>
-                  <p className='testimonial-company'>Trainee at PowerGrid</p>
+                  <p className='testimonial-company'>Learner at PowerGrid</p>
                 </div>
               </div>
               <p className='testimonial-quote'>
-                &quot;The training was interactive, fun, and full of valuable
-                insights. Mam&apos;s passion and energy were contagious, and we
-                left feeling motivated and confident.&quot;
+                &quot;The training was interactive, fun, and full of valuable insights. Mam&apos;s passion and energy were contagious, and we left feeling motivated and confident.&quot;
               </p>
             </div>
 
@@ -1007,13 +1015,11 @@ export default function Home() {
                 />
                 <div className='ml-4'>
                   <h4 className='testimonial-author'>Durgesh Mishra</h4>
-                  <p className='testimonial-company'>Trainee at PowerGrid</p>
+                  <p className='testimonial-company'>Learner at PowerGrid</p>
                 </div>
               </div>
               <p className='testimonial-quote'>
-                &quot;Mam&apos;s expertise and guidance helped us bridge my
-                skills gap. The training was well planned and executed; mam took
-                feedback from everyone at the end of her session.&quot;
+                &quot;Mam&apos;s expertise and guidance helped us bridge my skills gap. The training was well planned and executed; mam took feedback from everyone at the end of her session.&quot;
               </p>
             </div>
 
@@ -1175,6 +1181,14 @@ export default function Home() {
                     className='text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
                   >
                     About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/programs'
+                    className='text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
+                  >
+                    Programs
                   </Link>
                 </li>
                 <li>

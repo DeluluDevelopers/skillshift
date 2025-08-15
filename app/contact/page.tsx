@@ -185,6 +185,15 @@ ${formData.message}`;
                 </span>
               </Link>
               <Link
+                href='/programs'
+                className='text-white hover:text-premium-blue transition-all duration-300 font-medium animate-fade-in group'
+              >
+                <span className='relative'>
+                  Programs
+                  <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full'></span>
+                </span>
+              </Link>
+              <Link
                 href='/contact'
                 className='text-premium-blue font-medium animate-fade-in group'
               >
@@ -230,6 +239,13 @@ ${formData.message}`;
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 About
+              </Link>
+              <Link
+                href='/programs'
+                className='text-white hover:text-premium-blue transition-all duration-300 font-medium text-2xl'
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Programs
               </Link>
               <Link
                 href='/contact'
@@ -479,6 +495,64 @@ ${formData.message}`;
         </div>
       </section>
 
+      {/* Our Programs Section */}
+      <section className='py-12 sm:py-16 lg:py-24 bg-gradient-to-r from-premium-blue/10 to-premium-cyan/10'>
+        <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <h2 className='text-4xl font-bold text-white mb-8 text-center'>
+            Our Programs
+          </h2>
+          <div className='grid md:grid-cols-2 gap-8'>
+            <div className='glass-premium p-6 rounded-2xl mb-6'>
+              <h3 className='text-2xl font-semibold text-premium-blue mb-2'>
+                Leadshift – Leadership Development
+              </h3>
+              <p className='text-gray-300'>
+                Transform from a manager to an inspiring leader. Learn to
+                influence, motivate, and drive results with confidence.
+              </p>
+            </div>
+            <div className='glass-premium p-6 rounded-2xl mb-6'>
+              <h3 className='text-2xl font-semibold text-premium-blue mb-2'>
+                Speak with Intent
+              </h3>
+              <p className='text-gray-300'>
+                Upgrade your communication & presentation skills to express
+                clearly, listen actively, and make a lasting impact in any
+                conversation.
+              </p>
+            </div>
+            <div className='glass-premium p-6 rounded-2xl mb-6'>
+              <h3 className='text-2xl font-semibold text-premium-blue mb-2'>
+                Campus to Corporate Shift
+              </h3>
+              <p className='text-gray-300'>
+                Learn a bundle of professional skills that you need to shine in
+                your corporate career.
+              </p>
+            </div>
+            <div className='glass-premium p-6 rounded-2xl mb-6'>
+              <h3 className='text-2xl font-semibold text-premium-blue mb-2'>
+                Career Acceleration
+              </h3>
+              <p className='text-gray-300'>
+                Learn how to develop a career path aligned to your strengths,
+                understand personal branding, and join a community of
+                like-minded individuals.
+              </p>
+            </div>
+            <div className='glass-premium p-6 rounded-2xl mb-6'>
+              <h3 className='text-2xl font-semibold text-premium-blue mb-2'>
+                Women in Leadership
+              </h3>
+              <p className='text-gray-300'>
+                Specialized program for women who want to own leadership roles,
+                become the CEO of their lives, and polish their confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className='relative bg-black text-white py-16 border-t border-white/10 z-10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -518,6 +592,14 @@ ${formData.message}`;
                     className='text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
                   >
                     About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/programs'
+                    className='text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
+                  >
+                    Programs
                   </Link>
                 </li>
                 <li>

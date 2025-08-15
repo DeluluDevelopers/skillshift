@@ -102,6 +102,15 @@ export default function About() {
                 </span>
               </Link>
               <Link
+                href='/programs'
+                className='text-white hover:text-premium-blue transition-all duration-300 font-medium animate-fade-in group'
+              >
+                <span className='relative'>
+                  Programs
+                  <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full'></span>
+                </span>
+              </Link>
+              <Link
                 href='/contact'
                 className='text-white hover:text-premium-blue transition-all duration-300 font-medium animate-fade-in group'
               >
@@ -145,6 +154,13 @@ export default function About() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 About
+              </Link>
+              <Link
+                href='/programs'
+                className='text-white hover:text-premium-blue transition-all duration-300 font-medium text-2xl'
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Programs
               </Link>
               <Link
                 href='/contact'
@@ -747,6 +763,14 @@ export default function About() {
                     className='text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
                   >
                     About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/programs'
+                    className='text-gray-300 hover:text-premium-blue transition-colors duration-300 font-medium text-sm block w-fit mx-auto md:mx-0'
+                  >
+                    Programs
                   </Link>
                 </li>
                 <li>
