@@ -39,6 +39,21 @@ export default function Contact() {
     type: "idle",
     message: "",
   });
+  
+  // Handle URL parameters for program enrollment
+  useEffect(() => {
+    // Get the URL parameters
+    const searchParams = new URLSearchParams(window.location.search);
+    const program = searchParams.get('program');
+    
+    // If there's a program parameter, update the message field
+    if (program) {
+      setFormData(prev => ({
+        ...prev,
+        message: `I'm interested in enrolling for the "${program}" program. Please provide more information.`
+      }));
+    }
+  }, []);
 
   // Handle input changes
   const handleInputChange = (

@@ -225,7 +225,10 @@ export default function Programs() {
                   </p>
                 </div>
               </div>
-              <Link href='/contact' className='inline-block'>
+              <Link
+                href='/contact?program=Leadshift – Leadership Development'
+                className='inline-block'
+              >
                 <button className='bg-gradient-primary text-white py-3 px-6 rounded-xl font-semibold hover:glow-premium-hover transition-all duration-300 text-base btn-animate group'>
                   <span className='flex items-center'>
                     Enroll Now
@@ -271,7 +274,10 @@ export default function Programs() {
                   </p>
                 </div>
               </div>
-              <Link href='/contact' className='inline-block'>
+              <Link
+                href='/contact?program=Speak with Intent'
+                className='inline-block'
+              >
                 <button className='bg-gradient-cyan text-white py-3 px-6 rounded-xl font-semibold hover:glow-cyan-hover transition-all duration-300 text-base btn-animate group'>
                   <span className='flex items-center'>
                     Enroll Now
@@ -316,7 +322,10 @@ export default function Programs() {
                   </p>
                 </div>
               </div>
-              <Link href='/contact' className='inline-block'>
+              <Link
+                href='/contact?program=Campus to Corporate Shift'
+                className='inline-block'
+              >
                 <button className='bg-gradient-indigo text-white py-3 px-6 rounded-xl font-semibold hover:glow-indigo-hover transition-all duration-300 text-base btn-animate group'>
                   <span className='flex items-center'>
                     Enroll Now
@@ -362,7 +371,10 @@ export default function Programs() {
                   </p>
                 </div>
               </div>
-              <Link href='/contact' className='inline-block'>
+              <Link
+                href='/contact?program=Career Acceleration'
+                className='inline-block'
+              >
                 <button className='bg-gradient-primary text-white py-3 px-6 rounded-xl font-semibold hover:glow-premium-hover transition-all duration-300 text-base btn-animate group'>
                   <span className='flex items-center'>
                     Enroll Now
@@ -415,7 +427,10 @@ export default function Programs() {
                   </p>
                 </div>
               </div>
-              <Link href='/contact' className='inline-block'>
+              <Link
+                href='/contact?program=Women in Leadership'
+                className='inline-block'
+              >
                 <button className='bg-gradient-cyan text-white py-3 px-6 rounded-xl font-semibold hover:glow-cyan-hover transition-all duration-300 text-base btn-animate group'>
                   <span className='flex items-center'>
                     Enroll Now
