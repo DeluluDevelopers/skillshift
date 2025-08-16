@@ -308,9 +308,6 @@ export default function Home() {
               <Target className='h-5 w-5 text-premium-blue' />
               <span className='text-white font-medium'>Our Focus</span>
             </div>
-            <h2 className='text-5xl font-bold text-white mb-8'>
-              Target Audience
-            </h2>
             <p className='text-lg text-gray-300 max-w-3xl mx-auto font-open-sans'>
               We work with diverse organizations and individuals to provide
               comprehensive training solutions tailored to your needs.
@@ -938,7 +935,8 @@ export default function Home() {
               What Our Learners Say
             </h2>
             <p className='text-lg text-gray-300 max-w-3xl mx-auto font-open-sans'>
-              Hear from learners who have transformed their skills and careers through our training programs.
+              Hear from learners who have transformed their skills and careers
+              through our training programs.
             </p>
           </div>
 
@@ -959,7 +957,10 @@ export default function Home() {
                 </div>
               </div>
               <p className='testimonial-quote'>
-                &quot;The training session was incredibly engaging and informative. Mam&apos;s expertise and real-world examples made the content relatable and applicable to our needs in our organization.&quot;
+                &quot;The training session was incredibly engaging and
+                informative. Mam&apos;s expertise and real-world examples made
+                the content relatable and applicable to our needs in our
+                organization.&quot;
               </p>
             </div>
 
@@ -979,7 +980,9 @@ export default function Home() {
                 </div>
               </div>
               <p className='testimonial-quote'>
-                &quot;Mam&apos;s ability to connect with our team and tailor the training to our specific challenges was impressive. We saw great improvement in our communication and collaboration skills.&quot;
+                &quot;Mam&apos;s ability to connect with our team and tailor the
+                training to our specific challenges was impressive. We saw great
+                improvement in our communication and collaboration skills.&quot;
               </p>
             </div>
 
@@ -999,7 +1002,9 @@ export default function Home() {
                 </div>
               </div>
               <p className='testimonial-quote'>
-                &quot;The training was interactive, fun, and full of valuable insights. Mam&apos;s passion and energy were contagious, and we left feeling motivated and confident.&quot;
+                &quot;The training was interactive, fun, and full of valuable
+                insights. Mam&apos;s passion and energy were contagious, and we
+                left feeling motivated and confident.&quot;
               </p>
             </div>
 
@@ -1019,7 +1024,9 @@ export default function Home() {
                 </div>
               </div>
               <p className='testimonial-quote'>
-                &quot;Mam&apos;s expertise and guidance helped us bridge my skills gap. The training was well planned and executed; mam took feedback from everyone at the end of her session.&quot;
+                &quot;Mam&apos;s expertise and guidance helped us bridge my
+                skills gap. The training was well planned and executed; mam took
+                feedback from everyone at the end of her session.&quot;
               </p>
             </div>
 
