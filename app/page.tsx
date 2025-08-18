@@ -121,8 +121,38 @@ const OptimizedVideo = dynamic(
         return (
           <div className='relative'>
             {!isLoaded && (
-              <div className='absolute inset-0 bg-gradient-to-br from-blue-900/40 to-purple-900/40 animate-pulse rounded-3xl flex items-center justify-center'>
-                <div className='w-16 h-16 border-4 border-blue-400 border-t-transparent rounded-full animate-spin'></div>
+              <div className='absolute inset-0 bg-black/60 backdrop-blur-sm rounded-3xl flex flex-col items-center justify-center z-20'>
+                {/* Main loading spinner */}
+                <div className='relative mb-4'>
+                  <div className='w-20 h-20 border-4 border-blue-400/30 rounded-full'></div>
+                  <div className='absolute inset-0 w-20 h-20 border-4 border-blue-400 border-t-transparent rounded-full animate-spin'></div>
+                </div>
+
+                {/* Loading text */}
+                <div className='text-white text-lg font-semibold mb-2'>
+                  Loading Video
+                </div>
+                <div className='text-blue-400 text-sm opacity-80'>
+                  Please wait...
+                </div>
+
+                {/* Animated dots */}
+                <div className='flex space-x-1 mt-3'>
+                  <div className='w-2 h-2 bg-blue-400 rounded-full animate-bounce'></div>
+                  <div
+                    className='w-2 h-2 bg-blue-400 rounded-full animate-bounce'
+                    style={{ animationDelay: "0.1s" }}
+                  ></div>
+                  <div
+                    className='w-2 h-2 bg-blue-400 rounded-full animate-bounce'
+                    style={{ animationDelay: "0.2s" }}
+                  ></div>
+                </div>
+
+                {/* Shimmer effect */}
+                <div className='absolute inset-0 rounded-3xl overflow-hidden'>
+                  <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer'></div>
+                </div>
               </div>
             )}
             <video
@@ -135,6 +165,7 @@ const OptimizedVideo = dynamic(
               playsInline
               preload={isInView ? "metadata" : "none"}
               onLoadedData={handleLoadedData}
+              onClick={(e) => e.stopPropagation()} // Prevent video clicks from bubbling up
               poster='/landing_image.png' // Fallback poster
             >
               {isInView && (
@@ -152,7 +183,10 @@ const OptimizedVideo = dynamic(
             {/* Audio Control Button */}
             {isLoaded && (
               <button
-                onClick={toggleAudio}
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent event bubbling to parent container
+                  toggleAudio();
+                }}
                 className='absolute bottom-4 right-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 z-10'
                 title={isAudioPlaying ? "Mute Audio" : "Play Audio"}
               >
@@ -264,6 +298,7 @@ const AnimatedNumber = ({
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileVideoExpanded, setIsMobileVideoExpanded] = useState(false);
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
@@ -296,6 +331,20 @@ export default function Home() {
       document.body.classList.remove("mobile-menu-open");
     };
   }, [isMobileMenuOpen]);
+
+  // Handle body scroll when mobile video is expanded
+  useEffect(() => {
+    if (isMobileVideoExpanded) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileVideoExpanded]);
 
   return (
     <div className='min-h-screen bg-gradient-dark font-montserrat'>
@@ -441,9 +490,12 @@ export default function Home() {
                 transformation.
               </p>
               <div className='flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start'>
-                <a href='/contact' className='inline-block'>
-                  <button className='w-full sm:w-auto glass-premium border-2 border-blue-400 text-blue-400 px-6 sm:px-8 py-3 rounded-xl text-sm sm:text-base font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 btn-animate group'>
-                    <span className='flex items-center'>
+                <a
+                  href='/contact'
+                  className='inline-block w-full sm:w-auto max-w-xs sm:max-w-none mx-auto sm:mx-0'
+                >
+                  <button className='w-full sm:w-auto glass-premium border-2 border-blue-400 text-blue-400 px-6 sm:px-8 py-3 rounded-xl text-sm sm:text-base font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 btn-animate group btn-mobile-responsive mobile-touch-target'>
+                    <span className='flex items-center justify-center'>
                       Start Your Journey
                       <ArrowRight className='ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform' />
                     </span>
@@ -452,37 +504,70 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hero Video - Hidden on mobile */}
-            <div className='hidden lg:flex justify-center lg:justify-end animate-fade-in'>
-              <div className='relative'>
-                {/* Main video container with modern styling */}
-                <div className='relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20 p-1 backdrop-blur-sm'>
-                  {/* Inner glow effect */}
-                  <div className='absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-indigo-400/20 blur-md'></div>
-
-                  {/* Video element */}
-                  <div className='relative rounded-3xl overflow-hidden shadow-2xl'>
-                    <OptimizedVideo
-                      src='/landing-video_xfr8Cbpu.mp4'
-                      className='w-full max-w-lg lg:max-w-xl h-auto object-cover transition-all duration-500 hover:scale-105'
-                      style={{
-                        aspectRatio: "16/9",
-                        filter: "brightness(1.1) contrast(1.05) saturate(1.1)",
-                      }}
-                    />
-
-                    {/* Video overlay gradient */}
-                    <div className='absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5 pointer-events-none'></div>
+            {/* Hero Video - Now visible on mobile with click to expand */}
+            <div className='flex justify-center lg:justify-end animate-fade-in mt-8 lg:mt-0'>
+              <div className='relative w-full max-w-md lg:max-w-none'>
+                {/* Video Container - Always visible, click to expand */}
+                <div className='block'>
+                  {/* Mobile Fullscreen Toggle */}
+                  <div className='lg:hidden mb-2 flex justify-between items-center'>
+                    <span className='text-white text-sm opacity-80'>
+                      Demo Video
+                    </span>
+                    <span className='text-blue-400 text-xs opacity-60'>
+                      Tap to expand
+                    </span>
                   </div>
 
-                  {/* Corner accent elements */}
-                  <div className='absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse'></div>
-                  <div className='absolute bottom-4 left-4 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse delay-1000'></div>
-                </div>
+                  {/* Main video container with modern styling */}
+                  <div
+                    className={`relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20 p-1 backdrop-blur-sm transition-all duration-500 cursor-pointer ${
+                      isMobileVideoExpanded
+                        ? "video-expanded-mobile"
+                        : "relative hover:scale-[1.02]"
+                    }`}
+                    onClick={() =>
+                      setIsMobileVideoExpanded(!isMobileVideoExpanded)
+                    }
+                  >
+                    {/* Inner glow effect */}
+                    <div className='absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-indigo-400/20 blur-md'></div>
 
-                {/* Floating background elements */}
-                <div className='absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-xl animate-pulse'></div>
-                <div className='absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-br from-purple-400/10 to-indigo-400/10 rounded-full blur-xl animate-pulse delay-500'></div>
+                    {/* Video element */}
+                    <div
+                      className={`relative rounded-3xl overflow-hidden shadow-2xl ${
+                        isMobileVideoExpanded
+                          ? "w-full h-full max-w-4xl max-h-[80vh] mx-auto"
+                          : ""
+                      }`}
+                    >
+                      <OptimizedVideo
+                        src='/landing-video_xfr8Cbpu.mp4'
+                        className={`w-full h-auto object-cover transition-all duration-500 ${
+                          isMobileVideoExpanded
+                            ? "max-w-4xl max-h-[80vh]"
+                            : "max-w-lg lg:max-w-xl"
+                        }`}
+                        style={{
+                          aspectRatio: "16/9",
+                          filter:
+                            "brightness(1.1) contrast(1.05) saturate(1.1)",
+                        }}
+                      />
+
+                      {/* Video overlay gradient */}
+                      <div className='absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5 pointer-events-none'></div>
+                    </div>
+
+                    {/* Corner accent elements */}
+                    <div className='absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse lg:block'></div>
+                    <div className='absolute bottom-4 left-4 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse delay-1000 lg:block'></div>
+                  </div>
+
+                  {/* Floating background elements */}
+                  <div className='absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-xl animate-pulse hidden lg:block'></div>
+                  <div className='absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-br from-purple-400/10 to-indigo-400/10 rounded-full blur-xl animate-pulse delay-500 hidden lg:block'></div>
+                </div>
               </div>
             </div>
           </div>
