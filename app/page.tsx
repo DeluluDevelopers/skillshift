@@ -16,6 +16,143 @@ import {
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+// Optimized Video Component with lazy loading
+const OptimizedVideo = dynamic(() => Promise.resolve(({ src, className, style }: { src: string; className: string; style: React.CSSProperties }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isInView, setIsInView] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+        
+        // Enhanced visibility control with pause/play functionality
+        if (videoRef.current) {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            // Only play if more than 50% of video is visible
+            videoRef.current.play().catch(() => {
+              // Handle autoplay policy restrictions
+            });
+          } else {
+            // Pause when scrolled away or less than 50% visible
+            videoRef.current.pause();
+          }
+        }
+        
+        // Disconnect observer after first intersection for loading optimization
+        if (entry.isIntersecting && !isLoaded) {
+          // Keep observing until loaded, then continue for pause/play control
+        }
+      },
+      { 
+        threshold: [0.1, 0.5, 0.9],
+        rootMargin: '0px 0px -50px 0px' // Trigger when video is about to leave viewport
+      }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isLoaded]);
+
+  const handleLoadedData = () => {
+    setIsLoaded(true);
+    // Only play if the video is currently in view
+    if (videoRef.current && isInView) {
+      videoRef.current.play().catch(() => {
+        // Autoplay failed, which is fine
+      });
+    }
+  };
+
+  // Handle page visibility changes (tab switching, minimizing)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (videoRef.current) {
+        if (document.hidden) {
+          videoRef.current.pause();
+        } else if (isInView && isLoaded) {
+          videoRef.current.play().catch(() => {
+            // Handle autoplay restrictions
+          });
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [isInView, isLoaded]);
+
+  const toggleAudio = () => {
+    if (videoRef.current) {
+      if (isAudioPlaying) {
+        videoRef.current.muted = true;
+        setIsAudioPlaying(false);
+      } else {
+        videoRef.current.muted = false;
+        setIsAudioPlaying(true);
+      }
+    }
+  };
+
+  return (
+    <div className="relative">
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-purple-900/40 animate-pulse rounded-3xl flex items-center justify-center">
+          <div className="w-16 h-16 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      <video
+        ref={videoRef}
+        className={className}
+        style={style}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload={isInView ? "metadata" : "none"}
+        onLoadedData={handleLoadedData}
+        poster="/landing_image.png" // Fallback poster
+      >
+        {isInView && (
+          <>
+            <source src={src} type="video/mp4" />
+            <source src={src.replace('.mp4', '.webm')} type="video/webm" />
+          </>
+        )}
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* Audio Control Button */}
+      {isLoaded && (
+        <button
+          onClick={toggleAudio}
+          className="absolute bottom-4 right-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 z-10"
+          title={isAudioPlaying ? "Mute Audio" : "Play Audio"}
+        >
+          {isAudioPlaying ? (
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.782L4.846 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.846l3.537-3.782A1 1 0 019.383 3.076zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 11-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clipRule="evenodd" />
+            </svg>
+          ) : (
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.782L4.846 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.846l3.537-3.782A1 1 0 019.383 3.076zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          )}
+        </button>
+      )}
+    </div>
+  );
+}), { ssr: false });
 
 // Animated Number Component
 const AnimatedNumber = ({
@@ -285,16 +422,38 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hero Image - Hidden on mobile */}
+            {/* Hero Video - Hidden on mobile */}
             <div className='hidden lg:flex justify-center lg:justify-end animate-fade-in'>
-              <Image
-                src='/landing_image.png'
-                alt='3D Hero Component'
-                width={600}
-                height={600}
-                className='w-full max-w-lg lg:max-w-xl h-auto object-contain'
-                priority
-              />
+              <div className='relative'>
+                {/* Main video container with modern styling */}
+                <div className='relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20 p-1 backdrop-blur-sm'>
+                  {/* Inner glow effect */}
+                  <div className='absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-indigo-400/20 blur-md'></div>
+
+                  {/* Video element */}
+                  <div className='relative rounded-3xl overflow-hidden shadow-2xl'>
+                    <OptimizedVideo
+                      src='/landing-video_xfr8Cbpu.mp4'
+                      className='w-full max-w-lg lg:max-w-xl h-auto object-cover transition-all duration-500 hover:scale-105'
+                      style={{
+                        aspectRatio: "16/9",
+                        filter: "brightness(1.1) contrast(1.05) saturate(1.1)",
+                      }}
+                    />
+
+                    {/* Video overlay gradient */}
+                    <div className='absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5 pointer-events-none'></div>
+                  </div>
+
+                  {/* Corner accent elements */}
+                  <div className='absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse'></div>
+                  <div className='absolute bottom-4 left-4 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse delay-1000'></div>
+                </div>
+
+                {/* Floating background elements */}
+                <div className='absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-xl animate-pulse'></div>
+                <div className='absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-br from-purple-400/10 to-indigo-400/10 rounded-full blur-xl animate-pulse delay-500'></div>
+              </div>
             </div>
           </div>
         </div>
