@@ -753,7 +753,7 @@ export default function Home() {
       </section>
 
       {/* Client Companies */}
-      <section className='py-12 sm:py-16 lg:py-24 relative'>
+      {/* <section className='py-12 sm:py-16 lg:py-24 relative'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-20 animate-slide-up'>
             <div className='inline-flex items-center space-x-2 bg-glass-premium px-6 py-3 rounded-full mb-6'>
@@ -769,10 +769,8 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Horizontal Scrolling Logos */}
           <div className='relative overflow-hidden py-8'>
             <div className='animate-scroll-horizontal'>
-              {/* First set of logos */}
               <div className='logo-container glass-premium rounded-2xl'>
                 <Image
                   src='/pastcompanies/brainlurnconsultancy_logo - Neerja Dixit.jpeg'
@@ -837,7 +835,6 @@ export default function Home() {
                 />
               </div>
 
-              {/* Duplicate set for seamless loop */}
               <div className='logo-container glass-premium rounded-2xl'>
                 <Image
                   src='/pastcompanies/brainlurnconsultancy_logo - Neerja Dixit.jpeg'
@@ -878,15 +875,6 @@ export default function Home() {
                 <Image
                   src='/pastcompanies/download - Neerja Dixit.png'
                   alt='Company Logo'
-                  width={160}
-                  height={100}
-                  className='logo-image'
-                />
-              </div>
-              <div className='logo-container glass-premium rounded-2xl'>
-                <Image
-                  src='/pastcompanies/SU logo - Neerja Dixit.png'
-                  alt='Sharda University'
                   width={160}
                   height={100}
                   className='logo-image'
@@ -904,7 +892,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Animated Numbers Section */}
       <section

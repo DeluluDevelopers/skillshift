@@ -518,7 +518,7 @@ export default function About() {
       </section>
 
       {/* Client Companies */}
-      <section className='py-24 bg-gradient-dark relative'>
+      {/* <section className='py-24 bg-gradient-dark relative'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-20 animate-slide-up'>
             <div className='inline-flex items-center space-x-2 bg-glass-premium px-6 py-3 rounded-full mb-6'>
@@ -534,10 +534,8 @@ export default function About() {
             </p>
           </div>
 
-          {/* Horizontal Scrolling Logos */}
           <div className='relative overflow-hidden py-8'>
             <div className='animate-scroll-horizontal'>
-              {/* First set of logos */}
               <div className='logo-container glass-premium rounded-2xl'>
                 <Image
                   src='/pastcompanies/brainlurnconsultancy_logo - Neerja Dixit.jpeg'
@@ -602,7 +600,6 @@ export default function About() {
                 />
               </div>
 
-              {/* Duplicate set for seamless loop */}
               <div className='logo-container glass-premium rounded-2xl'>
                 <Image
                   src='/pastcompanies/brainlurnconsultancy_logo - Neerja Dixit.jpeg'
@@ -669,7 +666,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Animated Numbers Section */}
       <section
