@@ -707,7 +707,7 @@ export default function About() {
               <div className='flex items-center justify-center w-16 h-16 bg-gradient-indigo rounded-2xl mb-6 glow-indigo group-hover:glow-indigo-hover transition-all duration-300'>
                 <Zap className='h-8 w-8 text-white' />
               </div>
-              <h3 className='text-2xl font-semibold mb-4 text-white'>7+</h3>
+              <h3 className='text-2xl font-semibold mb-4 text-white'>3+</h3>
               <p className='text-gray-300 font-open-sans'>Years Experience</p>
             </div>
             <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>

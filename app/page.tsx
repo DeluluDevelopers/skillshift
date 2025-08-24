@@ -1166,7 +1166,7 @@ export default function Home() {
               </h3>
               <p className='text-gray-300 font-open-sans leading-relaxed'>
                 Comprehensive human resources solutions for new businesses with
-                expert consulatation
+                expert consultation
               </p>
             </div>
             <div className='glass-premium p-8 rounded-2xl card-hover animate-fade-in group'>
